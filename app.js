@@ -1,3 +1,16 @@
+function askYesNoQuestion(question) {
+    let answer = prompt(question + " (yes or no)");
+    if (answer.toLowerCase() === "yes") {
+      return true;
+    } else if (answer.toLowerCase() === "no") {
+      return false;
+    } else {
+      // If the user enters an invalid response, prompt again
+      alert("Please enter 'yes' or 'no'");
+      return askYesNoQuestion(question);
+    }
+  }
+
 var Name = prompt("Please, enter your Name");
 var gender = prompt("Enter your gender");
 
