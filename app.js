@@ -1,16 +1,3 @@
-function askYesNoQuestion(question) {
-    let answer = prompt(question + " (yes or no)");
-    if (answer.toLowerCase() === "yes") {
-      return true;
-    } else if (answer.toLowerCase() === "no") {
-      return false;
-    } else {
-      // If the user enters an invalid response, prompt again
-      alert("Please enter 'yes' or 'no'");
-      return askYesNoQuestion(question);
-    }
-  }
-
 var Name = prompt("Please, enter your Name");
 var gender = prompt("Enter your gender");
 
@@ -32,3 +19,42 @@ if (msg == false){
             alert("welcome "+Name)
         };
     };
+
+    // Function to get user input for a Yes/No question
+function getUserAnswer(question) {
+  const userInput = prompt(question);
+  return userInput.trim().toLowerCase();  // Convert to lowercase and remove leading/trailing whitespaces
+}
+
+// Function to validate user input
+function validateAnswer(answer) {
+  return answer === 'yes' || answer === 'no' ? answer : 'invalid';
+}
+
+// Function to ask three Yes/No questions and store answers in an array
+function askThreeQuestions() {
+  const answers = [];
+  for (let i = 1; i <= 3; i++) {
+      const question = `Question ${i}: Enter Yes/No`;
+      const userAnswer = getUserAnswer(question);
+      const validatedAnswer = validateAnswer(userAnswer);
+      answers.push(validatedAnswer);
+  }
+  return answers;
+}
+
+// Function to print array items on the console
+function printArrayItems(array) {
+  array.forEach((item, index) => {
+      console.log(`Answer ${index + 1}: ${item}`);
+  });
+}
+
+// Main function to execute the program
+function main() {
+  const userAnswers = askThreeQuestions();
+  printArrayItems(userAnswers);
+}
+
+// Run the program
+main();
