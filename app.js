@@ -19,3 +19,39 @@ if (msg == false){
             alert("welcome "+Name)
         };
     };
+
+function getUserAnswer(question) {
+  const userInput = prompt(question);
+  return userInput.trim().toLowerCase(); 
+}
+
+function validateAnswer(answer) {
+  return answer === 'yes' || answer === 'no' ? answer : 'invalid';
+}
+
+function askThreeQuestions() {
+  const answers = [];
+  const questionNum = ["Are you a student at Luminus College?", "Are you studying Python software development?", "Are you over 30 years old?"];
+  for (let i = 0; i <= 2; i++) {
+      const question = questionNum[i];
+      const userAnswer = getUserAnswer(question);
+      const validatedAnswer = validateAnswer(userAnswer);
+      answers.push(validatedAnswer);
+  }
+  return answers;
+}
+
+function printArrayItems(array) {
+      console.log("Question 1:", array[0]);
+      console.log("Question 2:", array[1]);
+      console.log("Question 3:", array[2]);
+
+  };
+
+
+function main() {
+  const userAnswers = askThreeQuestions();
+  printArrayItems(userAnswers);
+}
+
+main();
