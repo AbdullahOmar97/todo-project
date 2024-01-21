@@ -20,22 +20,20 @@ if (msg == false){
         };
     };
 
-    // Function to get user input for a Yes/No question
 function getUserAnswer(question) {
   const userInput = prompt(question);
-  return userInput.trim().toLowerCase();  // Convert to lowercase and remove leading/trailing whitespaces
+  return userInput.trim().toLowerCase(); 
 }
 
-// Function to validate user input
 function validateAnswer(answer) {
   return answer === 'yes' || answer === 'no' ? answer : 'invalid';
 }
 
-// Function to ask three Yes/No questions and store answers in an array
 function askThreeQuestions() {
   const answers = [];
-  for (let i = 1; i <= 3; i++) {
-      const question = `Question ${i}: Enter Yes/No`;
+  const questionNum = ["Are you a student at Luminus College?", "Are you studying Python software development?", "Are you over 30 years old?"];
+  for (let i = 0; i <= 2; i++) {
+      const question = questionNum[i];
       const userAnswer = getUserAnswer(question);
       const validatedAnswer = validateAnswer(userAnswer);
       answers.push(validatedAnswer);
@@ -43,18 +41,17 @@ function askThreeQuestions() {
   return answers;
 }
 
-// Function to print array items on the console
 function printArrayItems(array) {
-  array.forEach((item, index) => {
-      console.log(`Answer ${index + 1}: ${item}`);
-  });
-}
+      console.log("Question 1:", array[0]);
+      console.log("Question 2:", array[1]);
+      console.log("Question 3:", array[2]);
 
-// Main function to execute the program
+  };
+
+
 function main() {
   const userAnswers = askThreeQuestions();
   printArrayItems(userAnswers);
 }
 
-// Run the program
 main();
